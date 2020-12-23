@@ -637,7 +637,9 @@
     cell.nickName.attributedStringValue = returnValue;
     
     if ([YMWeChatPluginConfig sharedConfig].usingDarkTheme) {
-        cell.muteIndicator.normalColor = [NSColor redColor];
+        if (![cell.muteIndicator isKindOfClass:NSClassFromString(@"SVGImageView")]) {
+            cell.muteIndicator.normalColor = [NSColor redColor];
+        }
     }
 }
 
